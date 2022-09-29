@@ -36,9 +36,9 @@ stages:
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             commandOptions: '-backend-config=$(azsecret.secureFilePath)'
             backendType: 'azurerm'
-            backendServiceArm: 'service-connection-azurerm'
-            backendAzureRmResourceGroupName: 'tfstate'
-            backendAzureRmStorageAccountName: 'tfstate17297'
+            backendServiceArm: 'github.com_Eldorado7621'
+            backendAzureRmResourceGroupName: 'new-terraform-rg'
+            backendAzureRmStorageAccountName: 'tstate15364'
             backendAzureRmContainerName: 'tfstate'
             allowTelemetryCollection: true
           
