@@ -53,10 +53,11 @@ module "publicip" {
   resource_group   = "${data.azurerm_resource_group.proj3.name}"
 }
 module "vm" {
-  prefix               = "pref"
   source               = "../../modules/vm"
   location             = "${var.location}"
-  resource_group       = data.azurerm_resource_group.proj3.name
+  resource_group       = data.azurerm_resource_group.test.name  
+  application_type     = "${var.application_type}"
+  resource_type        = "VM"
   subnet_id            = "${module.network.subnet_id_test}"
-  public_ip_address_id = "${module.publicip.public_ip_address_id}"
+  public_ip            = "${module.publicip.public_ip_address_id}"
 }
