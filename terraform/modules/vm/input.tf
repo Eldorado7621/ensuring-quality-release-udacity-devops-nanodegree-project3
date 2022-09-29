@@ -1,6 +1,9 @@
-variable "location" {}
-variable "resource_group" {}
-variable "prefix" {}
-variable "public_ip_address_id" {}
+# Resource Group
+variable resource_group {}
+variable location {}
+
+#VM
+variable "application_type" {}
+variable "resource_type" {}
 variable "subnet_id" {}
-variable "vm_password" {}
+variable "public_ip" {}
