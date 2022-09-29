@@ -7,7 +7,7 @@ tenant_id = "af8b8b73-ef06-4dde-9921-25efa499c0a1"
 # Resource Group/Location
 location = "westeurope"
 resource_group = "new-terraform-rg"
-application_type = ""
+application_type = "proj3"
 
 # Network
 virtual_network_name = "terraform-vm"
