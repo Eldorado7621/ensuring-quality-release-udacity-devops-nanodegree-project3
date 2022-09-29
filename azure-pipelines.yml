@@ -39,7 +39,7 @@ stages:
             backendServiceArm: 'service-connection-azurerm'
             backendAzureRmResourceGroupName: 'new-terraform-rg'
             backendAzureRmStorageAccountName: 'tstate15364'
-            backendAzureRmContainerName: 'tfstate'
+            backendAzureRmContainerName: 'tstate'
             allowTelemetryCollection: true
           
         - task: TerraformCLI@0
