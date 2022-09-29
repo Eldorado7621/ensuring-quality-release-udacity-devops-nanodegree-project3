@@ -36,7 +36,7 @@ stages:
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             commandOptions: '-backend-config=$(azsecret.secureFilePath)'
             backendType: 'azurerm'
-            backendServiceArm: 'azurerm_servic_conn'
+            backendServiceArm: 'service-connection-azurerm'
             backendAzureRmResourceGroupName: 'new-terraform-rg'
             backendAzureRmStorageAccountName: 'tstate15364'
             backendAzureRmContainerName: 'tfstate'
@@ -51,7 +51,7 @@ stages:
         - task: AzureCLI@1
           displayName: Set Environment Variables for Terraform
           inputs:
-            azureSubscription: azurerm_servic_conn
+            azureSubscription: service-connection-azurerm
             scriptLocation: inlineScript
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             addSpnToEnvironment: true
@@ -65,7 +65,7 @@ stages:
           displayName: 'Terraform Plan'
           inputs:        
               command: 'plan'
-              environmentServiceName: 'azurerm_servic_conn'
+              environmentServiceName: 'service-connection-azurerm'
               allowTelemetryCollection: true
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
               
@@ -73,7 +73,7 @@ stages:
           displayName: Terraform Apply
           inputs:
             command: 'apply'
-            environmentServiceName: 'azurerm_servic_conn'
+            environmentServiceName: 'service-connection-azurerm'
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             allowTelemetryCollection: true
 
