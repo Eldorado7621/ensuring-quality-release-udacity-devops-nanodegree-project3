@@ -51,7 +51,7 @@ stages:
         - task: AzureCLI@1
           displayName: Set Environment Variables for Terraform
           inputs:
-            azureSubscription: service-connection-azurerm
+            azureSubscription: azurerm_servic_conn
             scriptLocation: inlineScript
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             addSpnToEnvironment: true
@@ -65,7 +65,7 @@ stages:
           displayName: 'Terraform Plan'
           inputs:        
               command: 'plan'
-              environmentServiceName: 'service-connection-azurerm'
+              environmentServiceName: 'azurerm_servic_conn'
               allowTelemetryCollection: true
               workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
               
@@ -73,7 +73,7 @@ stages:
           displayName: Terraform Apply
           inputs:
             command: 'apply'
-            environmentServiceName: 'service-connection-azurerm'
+            environmentServiceName: 'azurerm_servic_conn'
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             allowTelemetryCollection: true
 
@@ -125,7 +125,7 @@ stages:
               - task: AzureRmWebAppDeployment@4
                 inputs:
                   ConnectionType: 'AzureRM'
-                  azureSubscription: 'service-connection-azurerm'
+                  azureSubscription: 'azurerm_servic_conn'
                   appType: 'webApp'
                   WebAppName: 'project3demo-AppService'
                   packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip'
