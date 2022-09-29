@@ -36,7 +36,7 @@ stages:
             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
             commandOptions: '-backend-config=$(azsecret.secureFilePath)'
             backendType: 'azurerm'
-            backendServiceArm: 'github.com_Eldorado7621'
+            backendServiceArm: 'azurerm_servic_conn'
             backendAzureRmResourceGroupName: 'new-terraform-rg'
             backendAzureRmStorageAccountName: 'tstate15364'
             backendAzureRmContainerName: 'tfstate'
