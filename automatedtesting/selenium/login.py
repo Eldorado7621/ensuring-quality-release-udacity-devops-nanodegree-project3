@@ -6,17 +6,7 @@ from selenium.webdriver.common.by import By
 def get_current_end_point(url: str) -> str:
     return url.split("/")[-1]
 
-
-# Start the browser and login with standard_user
-def login (driver,user, password):
-    #print ('Starting the browser...')
-    # --uncomment when running in Azure DevOps.
-    # options = ChromeOptions()
-    # options.add_argument("--headless") 
-    # driver = webdriver.Chrome(options=options)
-    #driver = webdriver.Chrome()
-    #print ('Browser started successfully. Navigating to the demo page to login.')
-    #driver.get('https://www.saucedemo.com/')
+def login (driver, user, password):
     """
     Start the login with standard_user.
     """
@@ -41,7 +31,6 @@ def add_items(driver):
     assert int(items_count) == 6
     driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
     assert get_current_end_point(driver.current_url) == "cart.html"
-
 
 def remove_items(driver):
     """
@@ -71,12 +60,10 @@ if __name__ == "__main__":
     options.add_argument("--disable-extensions")
     options.add_argument("--disable-gpu")
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=options)
     print ('Browser started successfully. Navigating to the demo page to login.')
     driver.get('https://www.saucedemo.com/')
     login(driver, 'standard_user', 'secret_sauce')
     add_items(driver)
     remove_items(driver)
     print("[✓] All tests ran successfully.")
-    #login('standard_user', 'secret_sauce')
-
